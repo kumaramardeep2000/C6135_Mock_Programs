@@ -1,0 +1,83 @@
+Question 1:-Given an array of integers, write a Java program to find and print all the duplicate elements.
+Solution:-
+public class DuplicateNum {
+
+	public static void main(String[] args) {
+		int arr[]=new int[] {2,5,4,3,7,9,4,6,5};
+		int i,j;
+		for(i =0;i<arr.length;i++) {
+			for(j=i+1;j<arr.length;j++) {
+				if(arr[i]==arr[j]) {
+					System.out.println(arr[j]);
+				}
+			}
+		}
+
+	}
+
+}
+
+Question 2:-Write a Java function to check if two strings are anagrams of each other.
+Solution:-
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class AnagramPrinter {
+
+		 public static void main(String[] args) {
+		        String[] words = {"listen", "silent", "hello", "world", "act", "cat"};
+
+		        printAnagrams(words);
+		    }
+
+		    static void printAnagrams(String[] words) {
+		        HashMap<String, LinkedList<String>> anagramGroups = new HashMap<>();
+
+		        for (String word : words) {
+		            char[] chArray = word.toCharArray();
+		            Arrays.sort(chArray);
+		            String sortWord = new String(chArray);
+
+		            if (anagramGroups.containsKey(sortWord)) {
+		                anagramGroups.get(sortWord).add(word);
+		            } else {
+		                LinkedList<String> anagramList = new LinkedList<>();
+		                anagramList.add(word);
+		                anagramGroups.put(sortWord, anagramList);
+		            }
+		        }
+
+		        
+		        for (LinkedList<String> anagramGroup : anagramGroups.values()) {
+		            if (anagramGroup.size() > 1) {
+		                System.out.println("Anagrams: " + anagramGroup);
+		            }
+		        }
+		    }
+		}
+
+Question 3:-Write a Java program to print a right-angled triangle of stars. The number of rows should be taken as input.
+Solution:-
+import java.util.Scanner;
+
+public class Stars1 {
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("ENTER THE NUMBER OF ROWS");
+		int i ,j;
+		int row=sc.nextInt();
+		for(i=1;i<=row;i++) {
+			for(j=1;j<=i;j++) {
+				
+				System.out.print("* ");
+				
+			}
+			System.out.println();
+			
+		}
+		sc.close();
+
+	}
+}
